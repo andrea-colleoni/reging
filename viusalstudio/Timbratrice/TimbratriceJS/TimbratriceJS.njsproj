@@ -32,13 +32,6 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="constants.js" />
-    <Compile Include="dal\coppiatimbrate.js" />
-    <Compile Include="dal\db.js" />
-    <Compile Include="dal\dipendenti.js" />
-    <Compile Include="dal\giornate.js" />
-    <Compile Include="dal\timbrate.js" />
-    <Compile Include="dal\tipiTimbrata.js" />
-    <Compile Include="dal\turni.js" />
     <Compile Include="public\javascripts\bootstrap-datetimepicker.min.js" />
     <Compile Include="public\javascripts\bootstrap.min.js" />
     <Compile Include="public\javascripts\clock.js" />
@@ -89,7 +82,6 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="config\" />
-    <Folder Include="dal\" />
     <Folder Include="public\" />
     <Folder Include="public\fonts\" />
     <Folder Include="public\images\" />
