@@ -1,0 +1,104 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>TimbratriceJS</Name>
+    <RootNamespace>TimbratriceJS</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>7c282132-6155-4603-91d2-98cc0c63e676</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>bin\www</StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <StartWebBrowser>false</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="constants.js" />
+    <Compile Include="dal\coppiatimbrate.js" />
+    <Compile Include="dal\db.js" />
+    <Compile Include="dal\dipendenti.js" />
+    <Compile Include="dal\giornate.js" />
+    <Compile Include="dal\timbrate.js" />
+    <Compile Include="dal\tipiTimbrata.js" />
+    <Compile Include="dal\turni.js" />
+    <Compile Include="public\javascripts\bootstrap-datetimepicker.min.js" />
+    <Compile Include="public\javascripts\bootstrap.min.js" />
+    <Compile Include="public\javascripts\clock.js" />
+    <Compile Include="public\javascripts\datatables.min.js" />
+    <Compile Include="public\javascripts\jquery-2.2.1.min.js" />
+    <Compile Include="public\javascripts\moment-it.js" />
+    <Compile Include="public\javascripts\moment.js" />
+    <Compile Include="public\javascripts\reging\commons.js" />
+    <Compile Include="public\javascripts\reging\monitoraggio.js" />
+    <Compile Include="public\javascripts\reging\rilevazione.js" />
+    <Compile Include="routes\api.js" />
+    <Compile Include="routes\index.js" />
+    <Content Include="bin\www" />
+    <Content Include="package.json" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\images\clockface.jpg" />
+    <Content Include="public\images\hourhand.png" />
+    <Content Include="public\images\logo_cube_scm.png" />
+    <Content Include="public\images\minhand.png" />
+    <Content Include="public\images\sechand.png" />
+    <Content Include="public\stylesheets\bootstrap-datetimepicker.min.css" />
+    <Content Include="public\stylesheets\bootstrap-theme.min.css" />
+    <Content Include="public\stylesheets\bootstrap-theme.min.css.map" />
+    <Content Include="public\stylesheets\bootstrap.min.css" />
+    <Content Include="public\stylesheets\bootstrap.min.css.map" />
+    <Content Include="public\stylesheets\clock.css" />
+    <Content Include="public\stylesheets\core.css" />
+    <Content Include="public\stylesheets\datatables.min.css" />
+    <Content Include="public\stylesheets\style.css" />
+    <Content Include="README.md" />
+    <Content Include="views\dialogs\collaboratore.jade" />
+    <Content Include="views\dialogs\errorDialog.jade" />
+    <Content Include="views\dialogs\esitoDialog.jade" />
+    <Content Include="views\dialogs\giornata.jade" />
+    <Content Include="views\dialogs\letturaBarcode.jade" />
+    <Content Include="views\error.jade" />
+    <Content Include="views\index.jade" />
+    <Content Include="views\layout.jade" />
+    <Content Include="views\login.jade" />
+    <Content Include="views\monitoraggio.jade" />
+    <Content Include="views\rilevazione.jade" />
+    <Content Include="views\today.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="config\" />
+    <Folder Include="dal\" />
+    <Folder Include="public\" />
+    <Folder Include="public\fonts\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\javascripts\" />
+    <Folder Include="public\javascripts\reging\" />
+    <Folder Include="public\stylesheets\" />
+    <Folder Include="routes\" />
+    <Folder Include="views\" />
+    <Folder Include="views\dialogs\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+</Project>

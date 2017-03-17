@@ -1,0 +1,122 @@
+extends layout
+
+block content
+	img.logo(src='images/logo_cube_scm.png')
+	
+	<div class="mainCommandsArea">
+		<span id="showBarcodeDialog" class="commandBtn">Attiva il lettore per leggere il barcode</span>
+		<span id="showNewBadgeDialog" class="commandBtn">Registra un nuovo badge</span>			
+	</div>
+	<div class="clear"></div>
+	<div id="tabs">
+		<ul>
+			<li><a href="#today">Persone presenti oggi</a></li>
+			<li><a href="#history">Storico registrazioni</a></li>
+		</ul>
+		<div id="today">
+			<table id="tabToday" class="display" style="width: 100%;"></table>
+		</div>
+		<div id="history">
+			<table id="tabHistory" class="display" style="width: 100%;"></table>
+		</div>		
+	</div>
+	<div id="dialogBarcode" class="inputDialog" title="Lettura di un badge"
+		style="display: none;">
+		<div class="watermark"></div>
+		<span>Avvicinare il lettore al badge e premere il pulsante per
+			la lettura</span> 
+		<span class="info">Effettuando la lettura del
+			barcode, si registrerà automaticamente l'ingresso o l'uscita a
+			seconda dello stato attuale della registrazione.</span> 
+		<input type="hidden" name="regBarcode" id="txtRegBarcode" />
+	</div>
+	<div id="dialogBadge" class="inputDialog" title="Nuovo badge"
+		style="display: none;">
+		<div class="watermark"></div>
+		<div class="row">
+			<label for="barcode">Barcode (utilizzare il lettore di barcode)</label>
+			<input type="text" placeholder="BARCODE" name="barcode" id="txtBarcode" />
+		</div>
+		<div class="row">
+			<label for="nome">Nome</label>
+			<input type="text" placeholder="Nome" name="nome" id="txtNome" />
+		</div>
+		<div class="row">
+			<label for="cognome">Cognome</label>
+			<input type="text" placeholder="Cognome" name="cognome" id="txtCognome" />
+		</div>
+	</div>	
+	
+	<script type="text/javascript">
+	$(function() {
+		$('#tabs').tabs();
+		
+		refreshTables();
+		
+		$('#showNewBadgeDialog').click(function() {
+			$('#txtBarcode').val('');
+			$('#txtNome').val('');
+			$('#txtCognome').val('');
+			$('#dialogBadge').dialog({
+				resizable: false,
+				dialogClass: "no-close",
+				width: 800,
+				height: 400,
+				modal: true,
+				buttons: {
+					"Conferma": function() {
+						$.ajax({
+							type : "POST",
+							url : 'http://localhost:8080/reging/badge',
+							data: JSON.stringify({
+								badgeCode: $('#txtBarcode').val(),
+								nome: $('#txtNome').val(),
+								cognome: $('#txtCognome').val(),
+								ruolo: {}
+							}),
+							contentType:"application/json; charset=utf-8",
+							dataType:"json",
+							crossDomain : true
+						}).done(function(data) {
+							console.log(data);
+							showEsito(data);
+						});
+			        	$( this ).dialog( "close" );
+					},		
+					"Annulla": function() {
+			        	$( this ).dialog( "close" );
+					}
+			    }			
+			});				
+		});
+		
+	    $('#showBarcodeDialog').click(function() {
+	    	$('#txtRegBarcode').val('');
+	    	var regDlg = $('#dialogBarcode').dialog({
+	    		resizable: false,
+	    		dialogClass: "no-close",
+	    		width: 800,
+	    		height: 400,
+	    		modal: true,
+	    		buttons: {
+	    			"Annulla": function() {
+	    	        	$( this ).dialog( "close" );
+	    			}
+	    	    }			
+	    	});	
+	    	$('.ui-dialog :button').blur();
+	    	$(document).keypress(function( event ) {
+				if ( event.which == 13 ) {
+					event.preventDefault();
+					$(document).unbind('keypress');
+					toggleBarcode($('#txtRegBarcode').val(), setTimeout(function(){ refreshTables() }, 1000));
+					regDlg.dialog( "close" );
+				} else {
+					$('#txtRegBarcode').val($('#txtRegBarcode').val() + String.fromCharCode(event.which));
+				}
+   			});			
+		});	
+	});
+	</script>
+</body>
+</html>

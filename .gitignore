@@ -1,0 +1,15 @@
+/eclipse/.metadata
+/eclipse/.recommenders
+/eclipse/hsqldb-2.3.3/hsqldb
+/eclipse/RegIng/RegIng-DAL/target
+/eclipse/RegIng/RegIng-WebApp/target
+*.log
+/eclipse/Servers
+/enide/.metadata
+/eclipse/RemoteSystemsTempFiles
+/eclipse/deprecated
+/enide/RemoteSystemsTempFiles
+/enide/RegIng/node_modules
+/viusalstudio/Timbratrice/TimbratriceJS/node_modules
+/viusalstudio/Timbratrice/TimbratriceJS/*.user
+/viusalstudio/Timbratrice/.vs/Timbratrice/v15/*.suo

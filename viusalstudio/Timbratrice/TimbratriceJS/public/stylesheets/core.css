@@ -1,0 +1,89 @@
+body {
+	font-size: 12px;
+}
+
+.clear {
+	clear: both;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+.logo {
+	float: left;
+	margin-right: 50px;
+}
+
+.mainCommandsArea {
+	text-align: center;
+	    text-align: center;
+    padding: 40px;	
+}
+
+.mainCommandsArea .commandBtn {
+    border: 1px solid gray;
+    width: 320px;
+    height: 30px;
+    background-color: lightgray;
+    padding: 30px;
+    font-variant: small-caps;
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.mainCommandsArea .commandBtn:hover {
+	border: 2px solid gray;
+	padding: 29px;
+    background-color: #eee;
+}
+
+.inputDialog .watermark {
+	/* the image you want to 'watermark' */
+	height: 250px;
+    width: 750px;
+	background: url('../images/badge-scm.png') no-repeat center;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.inputDialog {
+	
+}
+.inputDialog .filigrana {
+	
+}
+.inputDialog span{
+    display: block;
+    font-size: larger;
+    padding-bottom: 10px;	
+}
+
+.inputDialog .info {
+    font-size: medium;
+    display: block;	
+}
+.row {
+	display: block;
+	padding: 5px;
+}
+
+.row span {
+	display: inline-block;
+}
+
+.titoloVoce {
+	font-weight: bold;
+	width: 200px;
+}
+
+#dialogBadge label {
+    width: 349px;
+    display: inline-block;	
+}
+
+#dialogBadge input {
+	width: 300px;
+}

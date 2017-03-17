@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="3 seconds">
+	<contextName>RegistrazioneIngressi</contextName>
+	<property name="LOGS_HOME" value="/var/log/reging" />
+	<timestamp key="byDay" datePattern="yyyyMMdd"/>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <File>${LOGS_HOME}/reging.log</File>
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      <!-- daily rollover -->
+	      <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+	
+	      <!-- keep 30 days' worth of history -->
+	      <maxHistory>30</maxHistory>
+	    </rollingPolicy>
+		<!-- "application-name" is a variable -->
+		
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%c{30}] - %m%n</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="info.colleoni.reging" level="ALL" />
+	
+	<jmxConfigurator />
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
